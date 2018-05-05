@@ -2,11 +2,18 @@ sudo: false
 dist: trusty
 language: java
 
+before_install:
+  - wget https://raw.githubusercontent.com/sormuras/bach/master/install-jdk.sh
+
 matrix:
   include:
-# 10-ea
-    - env: JDK_RELEASE='OracleJDK 10'
+# 10
+    - env: JDK='Oracle JDK 10'
       install: . ./install-jdk.sh -F 10 -L BCL
+    - env: JDK='OpenJDK 10'
+      install: . ./install-jdk.sh -F 10 -L GPL
 
 script:
-- java -version
+  - echo PATH = ${PATH}
+  - echo JAVA_HOME = ${JAVA_HOME}
+  - java -version
