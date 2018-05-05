@@ -1,3 +1,12 @@
+sudo: false
+dist: trusty
 language: java
-jdk:
-  - openjdk10
+
+matrix:
+  include:
+# 10-ea
+    - env: JDK_RELEASE='OracleJDK 10'
+      install: . ./install-jdk.sh -F 10 -L BCL
+
+script:
+- java -version
