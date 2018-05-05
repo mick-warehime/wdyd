@@ -10,10 +10,6 @@ matrix:
 # 10
     - env: JDK='Oracle JDK 10'
       install: . ./install-jdk.sh -F 10 -L BCL
-    - env: JDK='OpenJDK 10'
-      install: . ./install-jdk.sh -F 10 -L GPL
 
 script:
-  - echo PATH = ${PATH}
-  - echo JAVA_HOME = ${JAVA_HOME}
-  - java -version
+  - gradle check
